@@ -1,0 +1,12 @@
+/* This is our style.css file */
+/* We will use this to style our entire page. */
+
+body{
+	background-color: AliceBlue;
+}
+
+p{
+	color: black;
+	font-style: "Comic Sans";
+	font-size: 200%;
+}
