@@ -2,7 +2,7 @@
 /* We will use this to style our entire page. */
 
 body{
-	background-color: AliceBlue;
+	background-color: brown;
 }
 
 p{
@@ -10,3 +10,8 @@ p{
 	font-style: "Comic Sans";
 	font-size: 200%;
 }
+
+a:hover{
+	color: grey;
+	font-family: arial;
+};
