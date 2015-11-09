@@ -2,7 +2,7 @@
 /* We will use this to style our entire page. */
 
 #content {
-	
+
 }
 
 #footer {
@@ -10,14 +10,14 @@
 	color: white;
 	clear: both;
 	text-align: center;
-	padding: 5%;
+	padding: 5px;
 }
 
 #header {
 	background-color: black;
 	color: white;
 	text-align: center;
-	padding: 5%;
+	padding: 5px;
 }
 
 #nav {
