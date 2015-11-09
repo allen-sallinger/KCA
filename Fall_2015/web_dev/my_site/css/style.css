@@ -1,6 +1,39 @@
 /* This is our style.css file */
 /* We will use this to style our entire page. */
 
+#content {
+	
+}
+
+#footer {
+	background-color: black;
+	color: white;
+	clear: both;
+	text-align: center;
+	padding: 5%;
+}
+
+#header {
+	background-color: black;
+	color: white;
+	text-align: center;
+	padding: 5%;
+}
+
+#nav {
+	line-height: 30px;
+	background-color: #eeeeee;
+	height: 1000px;
+	width: 125px;
+	float: left;
+	padding: 5px;
+}
+
+
+#section {
+
+}
+
 body{
 	background-color: brown;
 }
