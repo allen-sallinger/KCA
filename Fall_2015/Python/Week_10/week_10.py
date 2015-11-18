@@ -4,12 +4,48 @@
 
 import random
 
-def ai_move(game_board, piece):
-    #if(piece == "x "):
-#        piece == "o "
+def check_win(game_board, game_over):
+    # check if a vertical win
+    if(game_board[0][0] != ". " and game_board[0][0] == game_board[1][0] and game_board[0][0] == game_board[2][0]):
+        game_over = 1
+        return game_over
+    
+    if(game_board[0][1] != ". " and game_board[0][1] == game_board[1][1] and game_board[0][1] == game_board[2][1]):
+        game_over = 1
+        return game_over
 
-#    else:
-#        piece == "x "
+    if(game_board[0][2] != ". " and game_board[0][2] == game_board[1][2] and game_board[0][2] == game_board[2][2]):
+        game_over = 1
+        return game_over
+
+    # check if horizontal win
+    if(game_board[0][0] != ". " and game_board[0][0] == game_board[0][1] and game_board[0][0] == game_board[0][2]):
+        game_over = 1
+        return game_over
+
+    if(game_board[1][0] != ". " and game_board[1][0] == game_board[1][1] and game_board[1][0] == game_board[1][2]):
+        game_over = 1
+        return game_over
+
+    if(game_board[2][0] != ". " and game_board[2][0] == game_board[2][1] and game_board[2][0] == game_board[2][2]):
+        game_over = 1
+        return game_over
+
+    # check TL -> BR win
+    if(game_board[0][0] != ". " and game_board[0][0] == game_board[1][1] and game_board[0][0] == game_board[2][2]):
+        game_over = 1
+        return game_over
+
+    # check BL->TR
+    if(game_board[2][0] != ". " and game_board[2][0] == game_board[1][1] and game_board[2][0] == game_board[0][2]):
+        game_over = 1
+        return game_over
+
+    else:
+        return 0
+    
+
+def ai_move(game_board, piece):
     piece = "o "
         
     x = random.randint(0,2)
@@ -55,10 +91,10 @@ def main():
         if(game_board[c_row][c_col] == ". "):
             game_board[c_row][c_col] = piece
 
-#            if(piece == "x "):
-#                piece = "o "
-#            else:
-#                piece = "x "
+        game_over = check_win(game_board, game_over)
+        if(game_over == 1):
+            print("Player won")
+            break
 
         game_over = 1
         for i in range(3):
@@ -75,6 +111,12 @@ def main():
             print(t_row)
 
         game_board = ai_move(game_board, piece)
+
+        # Ends game if there is a win
+        game_over = check_win(game_board, game_over)
+        if(game_over == 1):
+            print("AI won")
+            break
 
         print("AIs turn: ")
         for row in game_board:
