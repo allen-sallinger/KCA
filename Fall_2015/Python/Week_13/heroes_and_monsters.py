@@ -20,8 +20,8 @@ class hero:
 
     damage_dealt = 25
 
-    def add_health(self):
-        self.hp = self.hp + 10
+    def add_health(self, health):
+        self.hp = self.hp + health
 
     def take_damage(self, damage):
         self.hp = self.hp - damage
@@ -42,7 +42,7 @@ class monster:
     
     hp = 100 # set just as a base can differ per type of monster
 
-    damage_dealt = 25
+    damage_dealt = 10
 
     def add_health(self):
         self.hp = self.hp + 10
@@ -76,17 +76,19 @@ def main():
         if(monster_level < 5):
             new_monster.name = smarr[monster_choice]
             new_monster.hp = 100
-            new_monster.damage_dealt = 25
+            new_monster.damage_dealt = 10
 
         elif(monster_level > 5 and monster_level < 10):
             new_monster.name = mmarr[monster_choice]
             new_monster.hp = 300
-            new_monster.damage_dealt = 50
+            new_monster.damage_dealt = 25
 
         elif(new_monster_level > 10):
             new_monster.name = lmarr[monster_choice]
             new_monster.hp = 500
-            new_monster.damage_dealt = 100
+            new_monster.damage_dealt = 50
+
+        print("You encoutered: " + new_monster.name + "\n")
 
 
         while(new_monster.is_alive() and character.is_alive()):
@@ -113,13 +115,17 @@ def main():
             else:
                 print("The monsters attack missed you.")
 
+            print("\n\n")
+
 
 
         if(character.is_alive()):
-            print("You defeated the monster")
-
+            print("You defeated the monster" + new_monster.name + "\n")
+            # swap later to choose see how much health to add
+            character.add_health(100)
+            
         else:
-            print("You were defeated by the monster")
+            print("You were defeated by the monster\n")
                 
 
             
